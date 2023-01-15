@@ -53,14 +53,14 @@ function updateFilters() {
   
   // 7. Use this function to filter the table when data is entered.
   function filterTable() {
-    let selection = d3.selectAll("input").on("change", updateFilters);
+    let selection = d3.selectAll("#input").property("value");
     // 8. Set the filtered data to the tableData.
     let filteredData = tableData;
     // 9. Loop through all of the filters and keep any data that
     // matches the filter values
-    if (filterTable) {
+    if (selection) {
       // filteredData = filteredData.filter(filters => filters.input === selection);
-      filteredData = filteredData.filter(row => row.datetime === filterTable);
+      filteredData = filteredData.filter(row => row.input === selection);
     }
     
     // 10. Finally, rebuild the table using the filtered data
